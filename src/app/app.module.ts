@@ -6,25 +6,29 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { UserComponent } from './user/user.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
-import { AdminComponent } from './admin/admin.component';
-import { PmComponent } from './pm/pm.component';
 
 import { httpInterceptorProviders } from './auth/auth-interceptor';
-import { RequeteComponent } from './Dashboard/requete/requete.component';
+import { ParentComponent } from './utilisateur/parent/parent.component';
+import { ProfesseurComponent } from './utilisateur/professeur/professeur.component';
+import { ConsultantComponent } from './utilisateur/consultant/consultant.component';
+import { EtudiantComponent } from './utilisateur/etudiant/etudiant.component';
+import { AdminComponent } from './utilisateur/admin/admin.component';
+import { UserComponent } from './utilisateur/user/user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    UserComponent,
     RegisterComponent,
     HomeComponent,
+    ParentComponent,
+    ProfesseurComponent,
+    ConsultantComponent,
+    EtudiantComponent,
     AdminComponent,
-    PmComponent,
-    RequeteComponent
+    UserComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,29 +7,64 @@
     <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
       <div>
           <select  (change)="selectChangeHandler($event)">
-            <option value="user">user</option>
-            <option value="pm">pm</option>
-            <option value="admin">admin</option>
+            <option value="">Fonction</option>
+            <option value="etudiant">Etudiant</option>
+            <option value="parent">Parent</option>
+            <option value="professeur">Professeur</option>
+            <option value="consultant">Consultant</option>
+            <option value="user">Simple Utilisateur</option>
          
         </select>
         
       </div>
    
       <div class="form-group">
-        <label for="name">Your name</label>
-        <input type="text" class="form-control" name="name" [(ngModel)]="form.name" #name="ngModel" required />
+        <label for="name">Nom</label>
+        <input type="text" class="form-control" name="name" placeholder="Nom" [(ngModel)]="form.name" #name="ngModel" required />
         <div *ngIf="f.submitted && name.invalid">
-          <div *ngIf="name.errors.required">Name is required</div>
+          <div *ngIf="name.errors.required">Le nom est requis</div>
         </div>
       </div>
       <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
-          required />
-        <div *ngIf="f.submitted && username.invalid">
-          <div *ngIf="username.errors.required">Username is required</div>
+        <label for="prenom">Prenom</label>
+        <input type="text" class="form-control" name="prenom" placeholder="Prenom" [(ngModel)]="form.prenom" #prenom="ngModel" required />
+        <div *ngIf="f.submitted && prenom.invalid">
+          <div *ngIf="prenom.errors.required">Le prenom est requis</div>
         </div>
       </div>
+
+      <div class="form-group">
+        <label for="date">Date de naissance</label>
+        <input type="date" class="form-control" name="date"  value="1990-01-01" min="1900-01-01" max="2018-12-31" [(ngModel)]="form.date" #date="ngModel" required>
+        <div *ngIf="f.submitted && date.invalid">
+          <div *ngIf="date.errors.required">La date est requis</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="tel">Telephone</label>
+        <input type="text" class="form-control" name="tel" placeholder="Telephone" [(ngModel)]="form.tel" #tel="ngModel" required />
+        <div *ngIf="f.submitted && tel.invalid">
+          <div *ngIf="tel.errors.required">Le telephone est requis</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="username">Pseudo d'utilisateur</label>
+        <input type="text" class="form-control"  placeholder="Pseudo Utilisateur" name="username" [(ngModel)]="form.username" #username="ngModel"
+          required />
+        <div *ngIf="f.submitted && username.invalid">
+          <div *ngIf="username.errors.required">Username est requis</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="adress">Adresse</label>
+        <input type="text" class="form-control" name="adress" placeholder="Adresse" [(ngModel)]="form.adress" #adress="ngModel" required />
+        <div *ngIf="f.submitted && adress.invalid">
+          <div *ngIf="adress.errors.required"> Adresse est requis</div>
+        </div>
+      </div>
+
       <div class="form-group">
         <label for="email">Email</label>
         <input type="text" class="form-control" name="email" [(ngModel)]="form.email" #email="ngModel" required email />

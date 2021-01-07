@@ -25,19 +25,23 @@ selectChangeHandler (event: any) {
   console.log(this.selectedDay);
 }
   onSubmit() {
-    console.log(this.form);
+    console.log("info form "+this.form);
 
     this.signupInfo = new SignUpInfo(
       this.form.name,
+      this.form.prenom,
+      this.form.date,
+      this.form.tel,
       this.form.username,
+      this.form.adress,
       this.form.email,
       this.form.password,
       this.selectedDay
       );
-
+      console.log("sign up info "+this.signupInfo);
     this.authService.signUp(this.signupInfo).subscribe(
       data => {
-        console.log(data);
+        console.log("data "+data);
         this.isSignedUp = true;
         this.isSignUpFailed = false;
       },

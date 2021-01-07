@@ -1,13 +1,21 @@
 export class SignUpInfo {
     name: string;
+    prenom: string;
+    date: Date;
+    tel:string;
     username: string;
+    adress:string;
     email: string;
     role: string[];
     password: string;
 
-    constructor(name: string, username: string, email: string, password: string,role: string) {
+    constructor(name: string,prenom:string,date:Date,tel:string, username: string,adress:string ,email: string, password: string,role: string) {
         this.name = name;
+        this.prenom=prenom;
+        this.date=date;
+        this.tel=tel;
         this.username = username;
+        this.adress=adress;
         this.email = email;
         this.password = password;
         if(role=='user'){
@@ -16,9 +24,20 @@ export class SignUpInfo {
         if(role=='admin'){
             this.role=['admin'];
         }
-        if(role=='pm'){
-            this.role=['pm'];
+        if(role=='etudiant'){
+            this.role=['etudiant'];
         }
+        if(role=='parent'){
+            this.role=['parent'];
+        }
+        if(role=='professeur'){
+            this.role=['professeur'];
+        }
+        if(role=='consultant'){
+            this.role=['consultant'];
+        }
+        
+
         
     }
 }

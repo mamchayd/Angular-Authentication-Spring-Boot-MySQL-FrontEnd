@@ -8,8 +8,11 @@ import { Observable } from 'rxjs';
 export class UserService {
 
   private userUrl = 'http://localhost:8080/api/test/user';
-  private pmUrl = 'http://localhost:8080/api/test/pm';
+  private etudiantUrl = 'http://localhost:8080/api/test/etudiant';
   private adminUrl = 'http://localhost:8080/api/test/admin';
+  private professeurUrl = 'http://localhost:8080/api/test/professeur';
+  private parentUrl = 'http://localhost:8080/api/test/parent';
+  private consultantUrl = 'http://localhost:8080/api/test/consultant';
 
   constructor(private http: HttpClient) { }
 
@@ -17,8 +20,20 @@ export class UserService {
     return this.http.get(this.userUrl, { responseType: 'text' });
   }
 
-  getPMBoard(): Observable<string> {
-    return this.http.get(this.pmUrl, { responseType: 'text' });
+  getEtudiantBoard(): Observable<string> {
+    return this.http.get(this.etudiantUrl, { responseType: 'text' });
+  }
+
+  getParentBoard(): Observable<string> {
+    return this.http.get(this.parentUrl, { responseType: 'text' });
+  }
+
+  getProfesseurBoard(): Observable<string> {
+    return this.http.get(this.professeurUrl, { responseType: 'text' });
+  }
+
+  getConsultantBoard(): Observable<string> {
+    return this.http.get(this.consultantUrl, { responseType: 'text' });
   }
 
   getAdminBoard(): Observable<string> {

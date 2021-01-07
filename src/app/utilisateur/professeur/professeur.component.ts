@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../services/user.service';
+import { UserService } from '../../services/user.service';
+
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  selector: 'app-professeur',
+  templateUrl: './professeur.component.html',
+  styleUrls: ['./professeur.component.css']
 })
-export class UserComponent implements OnInit {
+export class ProfesseurComponent implements OnInit {
   board: string;
   errorMessage: string;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getUserBoard().subscribe(
+    this.userService.getProfesseurBoard().subscribe(
       data => {
         this.board = data;
       },
@@ -22,4 +23,5 @@ export class UserComponent implements OnInit {
       }
     );
   }
+
 }

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">grokonez</a>
+      <a class="navbar-brand" href="#">OnLineSchool</a>
     </div>
     <ul class="nav navbar-nav" routerLinkActive="active">
       <li class="nav-item"><a class="nav-link" routerLink="home">Home</a></li>
@@ -11,8 +11,17 @@
       <li *ngIf="authority === 'admin'" class="nav-item">
         <a class="nav-link" routerLink="admin">Admin Board</a>
       </li>
-      <li *ngIf="authority === 'pm'" class="nav-item">
-        <a class="nav-link" routerLink="pm">PM Board</a>
+      <li *ngIf="authority === 'professeur'" class="nav-item">
+        <a class="nav-link" routerLink="professeur">Professeur Board</a>
+      </li>
+      <li *ngIf="authority === 'etudiant'" class="nav-item">
+        <a class="nav-link" routerLink="etudiant">Etudiant Board</a>
+      </li>
+      <li *ngIf="authority === 'parent'" class="nav-item">
+        <a class="nav-link" routerLink="parent">Parent Board</a>
+      </li>
+      <li *ngIf="authority === 'consultant'" class="nav-item">
+        <a class="nav-link" routerLink="consultant">Consultant Board</a>
       </li>
       <li *ngIf="!authority" class="nav-item">
         <a class="nav-link" routerLink="auth/login">Login</a>
