@@ -16,6 +16,7 @@ import { ConsultantComponent } from './utilisateur/consultant/consultant.compone
 import { EtudiantComponent } from './utilisateur/etudiant/etudiant.component';
 import { AdminComponent } from './utilisateur/admin/admin.component';
 import { UserComponent } from './utilisateur/user/user.component';
+import { RequeteComponent } from './Dashboard/GestionRequete/requete/requete.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { UserComponent } from './utilisateur/user/user.component';
     EtudiantComponent,
     AdminComponent,
     UserComponent,
+    RequeteComponent,
   ],
   imports: [
     BrowserModule,

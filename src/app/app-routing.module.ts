@@ -10,6 +10,7 @@ import { ConsultantComponent } from './utilisateur/consultant/consultant.compone
 import { ParentComponent } from './utilisateur/parent/parent.component';
 import { ProfesseurComponent } from './utilisateur/professeur/professeur.component';
 import { AdminComponent } from './utilisateur/admin/admin.component';
+import { RequeteComponent } from './Dashboard/GestionRequete/requete/requete.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
     {path: 'etudiant', component: EtudiantComponent },
     {path: 'auth/login', component: LoginComponent},
     {path: 'signup', component: RegisterComponent },
+    {path: 'requete', component: RequeteComponent },
     {path: '',redirectTo: 'home', pathMatch: 'full'}
 ];
 

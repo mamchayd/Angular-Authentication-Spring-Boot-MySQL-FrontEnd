@@ -14,9 +14,15 @@
       <li *ngIf="authority === 'professeur'" class="nav-item">
         <a class="nav-link" routerLink="professeur">Professeur Board</a>
       </li>
+      <!-- ------------------------ Etudiant ------------------------------->
       <li *ngIf="authority === 'etudiant'" class="nav-item">
-        <a class="nav-link" routerLink="etudiant">Etudiant Board</a>
+        <a class="nav-link" routerLink="etudiant">Profil</a>
       </li>
+      <li *ngIf="authority === 'etudiant'" class="nav-item">
+        <a class="nav-link" routerLink="requete">Requete</a>
+      </li>
+
+          <!-- ----------------------------------------------------------------------------->
       <li *ngIf="authority === 'parent'" class="nav-item">
         <a class="nav-link" routerLink="parent">Parent Board</a>
       </li>

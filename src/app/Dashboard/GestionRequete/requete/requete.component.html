@@ -1,0 +1,67 @@
+<div *ngIf="info.token; else loggedOut">
+    <h5 class="text-primary">Your Information</h5>
+    <p>
+      <strong>Username:</strong> {{info.username}}<br/>
+      <strong>Roles:</strong> {{info.authorities}}<br />
+      <strong>Token:</strong> {{info.token}}.
+    </p>
+    <button class="btn btn-secondary" (click)="logout()">Logout</button>
+
+
+    <div class="row col-sm-6" style="max-width:350px;">
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+              
+          <div class="form-group">
+            <label for="name">Nom</label>
+            <input type="text" class="form-control" name="name" placeholder="Nom" [(ngModel)]="form.name" #name="ngModel" required />
+            <div *ngIf="f.submitted && name.invalid">
+              <div *ngIf="name.errors.required">Le nom est requis</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="name">Prenom</label>
+            <input type="text" class="form-control" name="prenom" placeholder="prenom" [(ngModel)]="form.prenom" #prenom="ngModel" required />
+            <div *ngIf="f.submitted && prenom.invalid">
+              <div *ngIf="prenom.errors.required">Le prenom est requis</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="name">Email</label>
+            <input type="text" class="form-control" name="email" placeholder="Email" [(ngModel)]="form.email" #email="ngModel" required />
+            <div *ngIf="f.submitted && email.invalid">
+              <div *ngIf="email.errors.required">Le email est requis</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="name">Type</label>
+            <input type="text" class="form-control" name="type" placeholder="Type" [(ngModel)]="form.type" #type="ngModel" required />
+            <div *ngIf="f.submitted && type.invalid">
+              <div *ngIf="type.errors.required">Le type est requis</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="name">titre</label>
+            <input type="text" class="form-control" name="titre" placeholder="Titre" [(ngModel)]="form.titre" #titre="ngModel" required />
+            <div *ngIf="f.submitted && titre.invalid">
+              <div *ngIf="titre.errors.required">Le titre est requis</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="name">Description</label>
+            <input type="text" class="form-control" name="description" placeholder="description" [(ngModel)]="form.description" #description="ngModel" required />
+            <div *ngIf="f.submitted && description.invalid">
+              <div *ngIf="description.errors.required">Le email est requis</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary">addReq</button>
+            <div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
+              Signup failed!<br/>{{errorMessage}}
+            </div>
+          </div>
+        </form>  
+  </div>
+  
+  <ng-template #loggedOut>
+    Please login.
+  </ng-template>

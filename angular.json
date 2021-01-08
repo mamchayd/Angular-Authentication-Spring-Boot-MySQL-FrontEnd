@@ -118,5 +118,8 @@
       }
     }
   },
-  "defaultProject": "AngularJwtAuth"
+  "defaultProject": "AngularJwtAuth",
+  "cli": {
+    "analytics": "9d898a7c-725f-4b82-88f2-ca47555bc2ed"
+  }
 }
