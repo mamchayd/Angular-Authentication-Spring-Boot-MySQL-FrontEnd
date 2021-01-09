@@ -17,6 +17,7 @@ import { EtudiantComponent } from './utilisateur/etudiant/etudiant.component';
 import { AdminComponent } from './utilisateur/admin/admin.component';
 import { UserComponent } from './utilisateur/user/user.component';
 import { RequeteComponent } from './Dashboard/GestionRequete/requete/requete.component';
+import { ListRequetComponent } from './Dashboard/GestionRequete/list-requet/list-requet.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { RequeteComponent } from './Dashboard/GestionRequete/requete/requete.com
     AdminComponent,
     UserComponent,
     RequeteComponent,
+    ListRequetComponent,
   ],
   imports: [
     BrowserModule,

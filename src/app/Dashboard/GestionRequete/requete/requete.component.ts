@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../../../auth/token-storage.service';
-import {AddRequete} from'../requete/addRequete'
+import {AddRequete} from'../requete/addRequete';
+import {AffichRequete} from'../requete/affichRequete';
 import {RequeteService} from '../../../services/gestionRequete/requete.service';
 
 @Component({
@@ -14,9 +15,13 @@ export class RequeteComponent implements OnInit {
   form:any={};
   isAdd = false;
   isAddFailed = false;
+  isAffich = false;
+  isAffichFailed = false;
   errorMessage = '';
 
   private addRequete:AddRequete;
+  private affichRequete:AffichRequete;
+  listeRequete:any;
 
   constructor(private token: TokenStorageService, private requeteService:RequeteService) { }
 
@@ -27,7 +32,33 @@ export class RequeteComponent implements OnInit {
       authorities: this.token.getAuthorities()
     };
   }
+
+  onGetRequetes(){
+    this.affichRequete = new AffichRequete(
+      this.token.getUsername()
+    );
+  
+
+    this.requeteService.affichReq(this.affichRequete).subscribe(
+      data=>{
+        data.forEach(function(e){console.log(e)});
+       
+        this.listeRequete=data;  
+        this.listeRequete.forEach(function(e){console.log(e)});
+        this.isAffich = true;
+        this.isAffichFailed = false;
+      }, error => {
+        console.log(error);
+        this.errorMessage = error.error.message;
+        this.isAffichFailed = true;
+      }
+      
+    )
+
+
+  }
   onSubmit() {
+
    this.addRequete = new AddRequete(
       this.form.name,
       this.form.prenom,
