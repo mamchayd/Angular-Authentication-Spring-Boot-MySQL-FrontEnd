@@ -11,7 +11,6 @@ import { ParentComponent } from './utilisateur/parent/parent.component';
 import { ProfesseurComponent } from './utilisateur/professeur/professeur.component';
 import { AdminComponent } from './utilisateur/admin/admin.component';
 import { RequeteComponent } from './Dashboard/GestionRequete/requete/requete.component';
-import { ListRequetComponent } from './Dashboard/GestionRequete/list-requet/list-requet.component';
 
 
 const routes: Routes = [
@@ -25,7 +24,7 @@ const routes: Routes = [
     {path: 'auth/login', component: LoginComponent},
     {path: 'signup', component: RegisterComponent },
     {path: 'requete', component: RequeteComponent },
-    {path: 'list-requete', component: ListRequetComponent },
+
     {path: '',redirectTo: 'home', pathMatch: 'full'}
 ];
 

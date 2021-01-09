@@ -14,20 +14,104 @@
             <button class="btn btn-primary " (click)="onGetRequetes()">Requetes</button>
           </div>
           <div class="panel-body">
-              <table *ngIf="listeRequete" class="table table-striped">
-                <tr><th>Id</th><th>Titre</th><th>Description</th><th>Date</th><th>Email</th></tr>
+            <div style="overflow-y:auto;height: 20rem;">
+              <table *ngIf="listeRequete" class="table table-striped" >
+                <tr><th>Numero</th><th>Titre</th><th>Description</th><th>Date</th><th>Email</th></tr>
                 <tr *ngFor="let req of listeRequete">
                     <td>{{req.id}}</td>
                     <td>{{req.titre}}</td>
                     <td>{{req.description}}</td>
                     <td>{{req.date}}</td>
                     <td>{{req.user}}</td>
-                </tr>
+                    <td><a class="btn btn-danger" (click)="onDeleteRequete(req)">Delete</a></td>
+
+                  </tr>
               </table>
+            </div>
           </div>
       </div>
     </div>
  <!---end  list -->
+
+
+
+     <!--- list -->
+     <div class="container">
+      <div class="panel panel-primary">
+          <div class="panel-heading">List reponse</div>
+          <form  name="formIdReuete"  #f="ngForm" novalidate>
+            <input type="text" class="form-control" name="idRequete" placeholder="Numero de Requete" [(ngModel)]="formIdReuete.idRequete" #idRequete="ngModel" required />
+        </form>
+          <div class="panel-body">
+            <button class="btn btn-primary " (click)="onGetReponse()">reponse</button>
+          </div>
+          <div class="panel-body">
+            <div style="overflow-y:auto;height: 20rem;">
+              <table *ngIf="listeReponse" class="table table-striped" >
+                <tr><th>Titre</th><th>Description</th><th>Date</th><th>Numero Requete</th></tr>
+                <tr *ngFor="let rep of listeReponse">
+                  
+                    <td>{{rep.titre}}</td>
+                    <td>{{rep.description}}</td>
+                    <td>{{rep.date}}</td>
+                    <td>{{rep.idRequete}}</td>
+                    <td><a class="btn btn-danger" (click)="onDeleteReponse(rep)">Delete</a></td>
+
+                  </tr>
+              </table>
+            </div>
+          </div>
+      </div>
+    </div>
+ <!---end  list -->
+
+
+<!---add  reponse-->
+<div class="row col-sm-6" style="max-width:350px;">
+  <form  name="formReponse" (ngSubmit)="f.form.valid && onAddReponse()" #f="ngForm" novalidate>
+  
+  <div class="form-group">
+    <label for="id">Numero </label>
+    <input type="text" class="form-control" name="id" placeholder="Numero de Requete" [(ngModel)]="formReponse.id" #id="ngModel" required />
+    <div *ngIf="f.submitted && id.invalid">
+      <div *ngIf="id.errors.required">Le titre est requis</div>
+    </div>
+  </div>
+    <div class="form-group">
+      <label for="name">Email</label>
+      <input type="text" class="form-control" name="email" placeholder="Email" [(ngModel)]="formReponse.email" #email="ngModel" required />
+      <div *ngIf="f.submitted && email.invalid">
+        <div *ngIf="email.errors.required">Le email est requis</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="titre">titre</label>
+      <input type="text" class="form-control" name="titre" placeholder="Titre" [(ngModel)]="formReponse.titre" #titre="ngModel" required />
+      <div *ngIf="f.submitted && titre.invalid">
+        <div *ngIf="titre.errors.required">Le titre est requis</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" class="form-control" name="description" placeholder="description" [(ngModel)]="formReponse.description" #description="ngModel" required />
+      <div *ngIf="f.submitted && description.invalid">
+        <div *ngIf="description.errors.required">Le email est requis</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary">addReq</button>
+      <div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
+        Signup failed!<br/>{{errorMessage}}
+      </div>
+    </div>
+  </form> 
+  
+  
+
+
+
+<!---end  reponse -->
+
     <div class="row col-sm-6" style="max-width:350px;">
         <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
               
